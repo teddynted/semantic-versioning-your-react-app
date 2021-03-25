@@ -16,7 +16,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "commitmsg": "validate-commit-msg"
+    "commitmsg": "validate-commit-msg",
+    "commit": "cz"
   },
   "eslintConfig": {
     "extends": [
@@ -50,7 +51,6 @@
       "types": [
         "feat",
         "fix",
-        "ci",
         "docs",
         "style",
         "refactor",
@@ -60,7 +60,7 @@
         "revert"
       ],
       "warnOnFail": false,
-      "maxSubjectLength": 100,
+      "maxSubjectLength": 101,
       "subjectPattern": "^[A-Z]+-[0-9]+ - .*",
       "subjectPatternErrorMsg": "Subject must be in format 'CMS-123 - Commit message'",
       "helpMessage": ""
