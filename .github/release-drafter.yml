@@ -1,0 +1,57 @@
+# Configuration for the release-drafter action
+# See docs here: https://github.com/marketplace/actions/release-drafter
+name-template: 'v$RESOLVED_VERSION'
+tag-template: 'v$RESOLVED_VERSION'
+categories:
+  - title: 'New Features'
+    label: 
+      - 'feature'
+      - 'feat'
+  - title: 'Improvements'
+    label: 'enhancement'
+  - title: 'Internal Improvements'
+    label: 'internal improvement'
+  - title: 'Bug Fixes'
+    label: 
+      - 'fix'
+      - 'bugfix'
+      - 'bug'
+      - 'refactor'
+change-template: '- $TITLE: #$NUMBER by @$AUTHOR'
+version-resolver:
+  major:
+    labels:
+      - 'major'
+  minor:
+    labels:
+      - 'minor'
+  patch:
+    labels:
+      - 'patch'
+  default: patch
+template: |
+  ## What's Changed
+  $CHANGES
+  ## Credits
+  Special thanks to $CONTRIBUTORS for their contributions!
+
+references:
+  - main
+  - v.+
+
+autolabeler:
+  - label: 'chore'
+    files:
+      - '*.md'
+    branch:
+      - '/docs{0,1}\/.+/'
+  - label: 'bug'
+    branch:
+      - '/fix\/.+/'
+    title:
+      - '/fix/i'
+  - label: 'enhancement'
+    branch:
+      - '/feature\/.+/'
+    body:
+      - '/JIRA-[0-9]{1,4}/'
